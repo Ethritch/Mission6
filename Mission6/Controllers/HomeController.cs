@@ -6,16 +6,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Mission6.Models;
 
 namespace Mission6.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
+        private TaskContext _TContext { get; set; } 
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TaskContext passTask)
         {
-            _logger = logger;
+            _TContext = passTask;
         }
 
         public IActionResult Index()
@@ -23,6 +25,15 @@ namespace Mission6.Controllers
             return View();
         }
 
+        public IActionResult AddTask()
+        {
+            return View();
+        }
+
+        public IActionResult ViewTasks()
+        {
+            return View();
+        }
        
     }
 }
