@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Add Tasks";
+}
+@model Mission6.Models.Tasks
+
+<div class="text-center">
+    <h1 class="display-4">Add a Task</h1>
+
+    <form method="post">
+
+        <!--Task Name-->
+        <label asp-for="TaskName">Task Name:</label>
+        <input asp-for="TaskName" />
+
+        <!--Due Date-->
+        <label asp-for="DueDate">Due Date:</label>
+        <input asp-for="DueDate" />
+
+        <!--Quandrant-->
+        <label asp-for="Quadrant">Quadrant:</label>
+        <input asp-for="Quadrant" />
+
+        <!--Category dropdown-->
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Categories c in ViewBag.allCategories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
+        <br />
+
+        <!--Completed dropdown-->
+        <label asp-for="Completed">Competed? </label>
+        <select asp-for="Completed">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+        </select>
+        <br />
+
+    </form>
+</div>
