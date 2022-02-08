@@ -9,7 +9,7 @@ using Mission6.Models;
 namespace Mission6.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220208020232_Initial")]
+    [Migration("20220208021705_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,28 @@ namespace Mission6.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Home"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "School"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Work"
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "Church"
+                        });
                 });
 
             modelBuilder.Entity("Mission6.Models.Tasks", b =>

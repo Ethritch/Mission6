@@ -29,6 +29,28 @@ namespace Mission6.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Home"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "School"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Work"
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "Church"
+                        });
                 });
 
             modelBuilder.Entity("Mission6.Models.Tasks", b =>

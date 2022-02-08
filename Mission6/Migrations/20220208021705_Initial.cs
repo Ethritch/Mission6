@@ -43,6 +43,26 @@ namespace Mission6.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName" },
+                values: new object[] { 1, "Home" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName" },
+                values: new object[] { 2, "School" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName" },
+                values: new object[] { 3, "Work" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName" },
+                values: new object[] { 4, "Church" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_CategoryID",
                 table: "Tasks",
