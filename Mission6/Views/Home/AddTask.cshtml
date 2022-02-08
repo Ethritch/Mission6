@@ -10,21 +10,21 @@
 
         <!--Task Name-->
         <label asp-for="TaskName">Task Name:</label>
-        <input asp-for="TaskName" />
+        <input asp-for="TaskName" /><br />
 
         <!--Due Date-->
         <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate" />
+        <input asp-for="DueDate" /><br />
 
         <!--Quandrant-->
         <label asp-for="Quadrant">Quadrant:</label>
-        <input asp-for="Quadrant" />
+        <input asp-for="Quadrant" /><br />
 
         <!--Category dropdown-->
         <label asp-for="CategoryID">Category: </label>
         <select asp-for="CategoryID">
             <option value="">Select a Category</option>
-            @foreach (Category c in ViewBag.allCategories)
+            @foreach (Category c in ViewBag.Categories)
             {
                 <option value="@c.CategoryID">@c.CategoryName</option>
             }
