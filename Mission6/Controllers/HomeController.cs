@@ -74,7 +74,7 @@ namespace Mission6.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Task blah)
+        public IActionResult Edit(Tasks blah)
         {
 
             _TContext.Update(blah);
