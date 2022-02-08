@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Mission6.Models;
 using System;
 using System.Collections.Generic;
@@ -26,9 +27,9 @@ namespace Mission6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<TaskContext>(OptionsBuilderConfigurationExtensions =>
+            services.AddDbContext<TaskContext>(options =>
             {
-                Options.UseSqlite(Configuration["ConnectionStrings:TaskConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:TaskConnection"]);
             });
         }
 
