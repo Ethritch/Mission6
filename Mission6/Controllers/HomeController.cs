@@ -38,7 +38,7 @@ namespace Mission6.Controllers
         [HttpPost]
         public IActionResult AddTask(Tasks ar)
         {
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _TContext.Add(ar);
                 _TContext.SaveChanges();

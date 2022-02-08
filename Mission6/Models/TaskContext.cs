@@ -26,6 +26,11 @@ namespace Mission6.Models
 
                 );
 
+            mb.Entity<Tasks>().HasData(
+                new Tasks { TaskID = -2, TaskName ="Get Help From Jenna", DueDate = new DateTime(2022, 02, 11, 1, 14, 50), Quadrant = 2, CategoryID = 1, Completed = true },
+                new Tasks { TaskID = -1, TaskName = "Get Help From Hannah", DueDate = new DateTime(2022, 02, 17, 1, 14, 50), Quadrant = 2, CategoryID = 3,Completed = false }
+                );
+
         }
     }
 }

@@ -9,7 +9,7 @@ using Mission6.Models;
 namespace Mission6.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220208021705_Initial")]
+    [Migration("20220208202834_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,6 +82,26 @@ namespace Mission6.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Tasks");
+
+                    b.HasData(
+                        new
+                        {
+                            TaskID = -2,
+                            CategoryID = 1,
+                            Completed = true,
+                            DueDate = new DateTime(2022, 2, 11, 1, 14, 50, 0, DateTimeKind.Unspecified),
+                            Quadrant = 2,
+                            TaskName = "Get Help From Jenna"
+                        },
+                        new
+                        {
+                            TaskID = -1,
+                            CategoryID = 3,
+                            Completed = false,
+                            DueDate = new DateTime(2022, 2, 17, 1, 14, 50, 0, DateTimeKind.Unspecified),
+                            Quadrant = 2,
+                            TaskName = "Get Help From Hannah"
+                        });
                 });
 
             modelBuilder.Entity("Mission6.Models.Tasks", b =>

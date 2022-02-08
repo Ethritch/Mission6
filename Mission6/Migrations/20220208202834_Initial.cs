@@ -63,6 +63,16 @@ namespace Mission6.Migrations
                 columns: new[] { "CategoryID", "CategoryName" },
                 values: new object[] { 4, "Church" });
 
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskID", "CategoryID", "Completed", "DueDate", "Quadrant", "TaskName" },
+                values: new object[] { -2, 1, true, new DateTime(2022, 2, 11, 1, 14, 50, 0, DateTimeKind.Unspecified), 2, "Get Help From Jenna" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskID", "CategoryID", "Completed", "DueDate", "Quadrant", "TaskName" },
+                values: new object[] { -1, 3, false, new DateTime(2022, 2, 17, 1, 14, 50, 0, DateTimeKind.Unspecified), 2, "Get Help From Hannah" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_CategoryID",
                 table: "Tasks",
