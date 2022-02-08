@@ -10,15 +10,20 @@
 
         <!--Task Name-->
         <label asp-for="TaskName">Task Name:</label>
-        <input asp-for="TaskName" />
+        <input asp-for="TaskName" /><br />
 
         <!--Due Date-->
         <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate" />
+        <input asp-for="DueDate" /><br />
 
         <!--Quandrant-->
         <label asp-for="Quadrant">Quadrant:</label>
-        <input asp-for="Quadrant" />
+        <select asp-for="Completed">
+            <option value="1">Important / Urgent</option>
+            <option value="2"> Important / Not Urgent</option>
+            <option value="3">Not Important / Urgent</option>
+            <option value="4">Not Important / Not Urgent</option>
+        </select><br />
 
         <!--Category dropdown-->
         <label asp-for="CategoryID">Category: </label>
