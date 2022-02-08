@@ -8,6 +8,7 @@ namespace Mission6.Models
 {
     public class Tasks
     {
+        [Key]
         [Required]
         public int TaskID { get; set; }
         [Required]
