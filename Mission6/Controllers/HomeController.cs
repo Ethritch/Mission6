@@ -56,7 +56,7 @@ namespace Mission6.Controllers
         {
             var form = _TContext.Tasks
                  .Include(x => x.Category)
-                 .OrderBy(x => x.Quadrent).ToList();
+                 .OrderBy(x => x.Quadrant).ToList();
             return View(form);
 
             
