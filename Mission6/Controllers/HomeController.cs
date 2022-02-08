@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Mission6.Models;
 
 namespace Mission6.Controllers
 {
     public class HomeController : Controller
     {
+
 
         private TaskContext _TContext { get; set; }
 
@@ -23,6 +25,7 @@ namespace Mission6.Controllers
         {
             return View();
         }
+
 
         [HttpGet]
         public IActionResult AddTask()
@@ -95,8 +98,5 @@ namespace Mission6.Controllers
 
             return RedirectToAction("ViewTasks");
         }
-
-
-
-    }
+   }
 }
