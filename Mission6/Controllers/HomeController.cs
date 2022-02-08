@@ -41,7 +41,7 @@ namespace Mission6.Controllers
             {
                 _TContext.Add(ar);
                 _TContext.SaveChanges();
-                return View();
+                return View("Confirmation", ar);
             }
             else
             {
