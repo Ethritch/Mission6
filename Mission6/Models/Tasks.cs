@@ -14,7 +14,7 @@ namespace Mission6.Models
         public string TaskName { get; set; }
         public DateTime DueDate { get; set; }
         [Required]
-        public int Quandrant { get; set; }
+        public int Quadrant { get; set; }
         [Required]
         public int CategoryID { get; set; }
         public Category CategoryName { get; set; }

@@ -21,12 +21,12 @@
         <input asp-for="Quadrant" />
 
         <!--Category dropdown-->
-        <label asp-for="CategoryId">Category: </label>
-        <select asp-for="CategoryId">
+        <label asp-for="CategoryID">Category: </label>
+        <select asp-for="CategoryID">
             <option value="">Select a Category</option>
-            foreach (Categories c in ViewBag.allCategories)
+            @foreach (Category c in ViewBag.allCategories)
             {
-                <option value="c.CategoryId">c.CategoryName</option>
+                <option value="@c.CategoryID">@c.CategoryName</option>
             }
         </select>
         <br />
