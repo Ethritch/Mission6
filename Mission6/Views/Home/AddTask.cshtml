@@ -19,10 +19,10 @@
         <!--Quandrant-->
         <label asp-for="Quadrant">Quadrant:</label>
         <select asp-for="Completed">
-            <option value="1">Important / Urgent</option>
-            <option value="2"> Important / Not Urgent</option>
-            <option value="3">Not Important / Urgent</option>
-            <option value="4">Not Important / Not Urgent</option>
+            <option value=1>Important / Urgent</option>
+            <option value=2> Important / Not Urgent</option>
+            <option value=3>Not Important / Urgent</option>
+            <option value=4>Not Important / Not Urgent</option>
         </select><br />
 
         <!--Category dropdown-->
@@ -39,12 +39,13 @@
         <!--Completed options
         <label asp-for="Completed">Competed? </label>
         <input type="checkbox" asp-for="Completed" value="false"/><br />-->
+        
         <label asp-for="Completed">: Completed</label>
         <select asp-for="Completed">
-            <option value="false">No</option>
-            <option value="true">Yes</option>
+            <option value="true">No</option>
+            <option value="false">Yes</option>
         </select>
-        <br />
+        <br /> 
 
         <button type="submit">Add Task</button>
     </form>
