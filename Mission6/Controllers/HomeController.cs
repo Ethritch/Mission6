@@ -38,7 +38,7 @@ namespace Mission6.Controllers
         [HttpPost]
         public IActionResult AddTask(Tasks ar)
         {
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _TContext.Add(ar);
                 _TContext.SaveChanges();
@@ -56,7 +56,7 @@ namespace Mission6.Controllers
         public IActionResult ViewTasks()
         {
             var form = _TContext.Tasks
-                 .Include(x => x.Category)
+                 .Include(x => x.CategoryName)
                  .OrderBy(x => x.Quadrant).ToList();
             return View(form);
 
@@ -68,13 +68,13 @@ namespace Mission6.Controllers
         {
             ViewBag.Categories = _TContext.Categories.ToList();
 
-            var form = _TContext.Tasks.Single(x => x.TaskId == taskid);
+            var form = _TContext.Tasks.Single(x => x.TaskID == taskid);
 
             return View("ViewTasks", form);
         }
 
         [HttpPost]
-        public IActionResult Edit(AddTask blah)
+        public IActionResult Edit(Tasks blah)
         {
             _TContext.Update(blah);
             _TContext.SaveChanges();
@@ -86,7 +86,7 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
-            var form = _TContext.Tasks.Single(x => x.TaskId == taskid);
+            var form = _TContext.Tasks.Single(x => x.TaskID == taskid);
 
             return View(form);
         }
