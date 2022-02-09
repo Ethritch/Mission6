@@ -23,6 +23,6 @@ namespace Mission6.Models
         [ForeignKey("Category")]
         [Required]
         public int CategoryID { get; set; }
-        public Category CategoryName { get; set; }
+        public Category Category { get; set; }
     }
 }

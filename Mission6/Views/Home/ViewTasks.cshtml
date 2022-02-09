@@ -2,126 +2,147 @@
     ViewData["Title"] = "View Task Matrix";
 }
 
-<h1>Task Matrix</h1>
-<h3>View Tasks</h3>
+@model List<Tasks>
 
-<div class="grid-container">
-    <div class="grid-item">
-        <p class="font-weight-bold text-center">Urgent</p>
-        <div class="scroll grid-inner-item">
-            <table class="table table-bordered table-hover">
-                <thead class="font-weight-bold text-center">
-                    <tr>
-                        <td>Task</td>
-                        <td>Due Date</td>
-                        <td>Quadrant</td>
-                        <td>Category</td>
-                        <td>Completed</td>
-                        <td>Edit/Delete</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 15; i++)
-                    {
+<h1 class="text-center">Task Matrix</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h5 class="text-center">Important & Urgent</h5>
+            <div class="my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                    <thead class="font-weight-bold text-center">
                         <tr>
-                            <td>I am testing what happens with a longer table entry</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>
-                                <a class=" btn btn-secondary">Edit</a><br />
-                                <a class="btn btn-secondary">Delete</a>
-                            </td>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant == 1)
+                            {
+                                <tr>
+                                    <td>@x.TaskName</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td>@x.Completed</td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID" class=" btn btn-secondary">Edit</a><br />
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <h5 class="text-center">Important, Not Urgent</h5>
+            <div class="my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                    <thead class="font-weight-bold text-center">
+                        <tr>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant == 2)
+                            {
+                                <tr>
+                                    <td>@x.TaskName</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td>@x.Completed</td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID" class=" btn btn-secondary">Edit</a><br />
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
-    <div class="grid-item">
-        <p class="font-weight-bold text-center">Not Urgent</p>
-        <div class="scroll grid-inner-item">
-            <table class="table table-bordered table-hover">
-                <thead class="font-weight-bold text-center">
-                    <tr>
-                        <td>Task</td>
-                        <td>Due Date</td>
-                        <td>Quadrant</td>
-                        <td>Category</td>
-                        <td>Completed</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 15; i++)
-                    {
+    <div class="row">
+        <div class="col-6">
+            <h5 class="text-center">Not Important, Urgent</h5>
+            <div class="my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                    <thead class="font-weight-bold text-center">
                         <tr>
-                            <td>I am testing what happens with a longer table entry</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model) 
+                        {
+                            @if (x.Quadrant == 3)
+                            {
+                                <tr>
+                                    <td>@x.TaskName</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td>@x.Completed</td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID" class=" btn btn-secondary">Edit</a><br />
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-    </div>
-
-    <div class="grid-item">
-        <div class="scroll grid-inner-item">
-            <table class="table table-bordered table-hover">
-                <thead class="font-weight-bold text-center">
-                    <tr>
-                        <td>Task</td>
-                        <td>Due Date</td>
-                        <td>Quadrant</td>
-                        <td>Category</td>
-                        <td>Completed</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 15; i++)
-                    {
+        <div class="col-6">
+            <h5 class="text-center">Not Important or Urgent</h5>
+            <div class="my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                    <thead class="font-weight-bold text-center">
                         <tr>
-                            <td>I am testing what happens with a longer table entry</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="grid-item">
-        <div class="scroll grid-inner-item">
-            <table class="table table-bordered table-hover">
-                <thead class="font-weight-bold text-center">
-                    <tr>
-                        <td>Task</td>
-                        <td>Due Date</td>
-                        <td>Quadrant</td>
-                        <td>Category</td>
-                        <td>Completed</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 15; i++)
-                    {
-                        <tr>
-                            <td>I am testing what happens with a longer table entry</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model) 
+                        {
+                            @if (x.Quadrant == 4)
+                            {
+                                <tr>
+                                    <td>@x.TaskName</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td>@x.Completed</td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID" class=" btn btn-secondary">Edit</a><br />
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
