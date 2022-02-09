@@ -27,7 +27,7 @@ namespace Mission6.Controllers
             return View();
         }
 
-
+        //this is the get method to get to the view that has the task form
         [HttpGet]
         public IActionResult AddTask()
         {
@@ -35,6 +35,7 @@ namespace Mission6.Controllers
 
             return View();
         }
+        //This is the part of the controller that handles the info posted from the form
         [HttpPost]
         public IActionResult AddTask(Tasks ar)
         {
@@ -52,6 +53,7 @@ namespace Mission6.Controllers
             }
             
         }
+        //This Get access the viewtask list
         [HttpGet]
         public IActionResult ViewTasks()
         {
@@ -63,7 +65,7 @@ namespace Mission6.Controllers
 
             
         }
-
+        //This is the edit controller stuff
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
@@ -84,7 +86,7 @@ namespace Mission6.Controllers
             return RedirectToAction("ViewTasks");
 
         }
-
+        //delete controller stuff
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
