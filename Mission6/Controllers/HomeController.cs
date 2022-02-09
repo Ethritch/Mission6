@@ -56,7 +56,7 @@ namespace Mission6.Controllers
         public IActionResult ViewTasks()
         {
             var form = _TContext.Tasks
-                 .Include(x => x.CategoryName)
+                 .Include(x => x.Category)
                  .OrderBy(x => x.Quadrant)
                  .ToList();
             return View(form);
@@ -71,7 +71,7 @@ namespace Mission6.Controllers
 
             var form = _TContext.Tasks.Single(x => x.TaskID == taskid);
 
-            return View("ViewTasks", form);
+            return View("AddTask", form);
         }
 
         [HttpPost]
